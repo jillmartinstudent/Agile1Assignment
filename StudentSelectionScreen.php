@@ -1,3 +1,7 @@
+   <!--? php 
+require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php')
+   -->
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
