@@ -2,7 +2,7 @@
 <html>
 <body>
 <!-- Taken from 'View marks for specific coursework' user story-->
-<h2>View marks for coursework</h2>
+<h2>View a student's average mark</h2>
 Select from pre-defined option in the field below
 <p>
 <?php    
@@ -12,7 +12,7 @@ Select from pre-defined option in the field below
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 			
 	//some test stuff
-	$courses = "SELECT courseworkId, title FROM sc_coursework";
+	$courses = "SELECT stuMatric, firstName, secondName FROM sc_students";
     $result = mysqli_query($connection, $courses);
 	$numberOfRows = mysqli_affected_rows($connection);
 	
@@ -21,11 +21,10 @@ Select from pre-defined option in the field below
     mysqli_close($connection);
 	
 ?>
-
-<form action="return_courseware.php" method="post">
+<form action="return_average_mark.php" method="post">
 <select>
-    <?php foreach($result as $course): ?>
-        <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>
+    <?php foreach($result as $mark): ?>
+        <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?><?= $mark['secondName']; ?></option>
     <?php endforeach; ?>
  
 </select>
