@@ -1,0 +1,1 @@
+Hello, if you can see this file in your local repository you've connected OK!
