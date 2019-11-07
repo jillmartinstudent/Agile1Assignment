@@ -3,15 +3,6 @@
 session_start();
 	
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
-        
-        //test stuff
-        $test = "SELECT stumatric, firstname, secondName FROM sc_students WHERE stuMatric = '151025741'";
-        $result = mysqli_query($connection, $test);
-        $numberOfRows = mysqli_affected_rows($connection);
-        
-        print('Number of rows returned is: ' . $numberOfRows);
-        
-        mysqli_close($connection);
 
 // LOGIN USER
 if (isset($_POST['submit'])) {
