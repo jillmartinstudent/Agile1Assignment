@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+    <head>
+    <title>View marks for coursework</title>   
+    <link href="index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <script src="main.js"></script>
+    </head>
 <body>
 <!-- Taken from 'View marks for specific coursework' user story-->
 <h2>View marks for coursework</h2>

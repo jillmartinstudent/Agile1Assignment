@@ -1,4 +1,10 @@
 <html>
+    <head>
+    <title>Return courseware marks</title>   
+    <link href="index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <script src="main.js"></script>
+    </head>
 <body>
 <h2>Marks for <!--?php echo $_POST["value"]; ?--><br>
 </h2>
