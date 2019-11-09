@@ -74,3 +74,9 @@
         width: 95%;
         padding: 30px;
     }
+
+    #allMarks table, th, td {
+        border: 1px solid black;
+        padding: 3px;	
+        border-collapse: collapse
+    }
