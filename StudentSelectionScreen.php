@@ -1,55 +1,103 @@
-   <!--? php 
-require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php')
-   -->
+<?php
+	
+require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
+	
+//This search will allow the user to search ny first name / lastname and student ID number from sc_students
 
+if(isset($_POST['search']))
+{
+    $valueToSearch = $_POST['valueToSearch'];
+    $query ="SELECT * FROM 'sc_students' WHERE CONCAT ('stuMatric', 'firstName', 'secondName') LIKE '%".$valueToSearch."%'";
+    $search_result = filterTable ($query);
+}
+else {
+    $query = "SELECT * FROM 'sc_students'";
+    $search_result = filterTable ($query);
+}
+ 
 
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
+ function filterTable ($query)
+ {
+    $connect = mysqli_connect("localhost", "root", "", "sc_students");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
 
-<html>
-   <!--? php 
-require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php')
-   -->
-   
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-
+ }     
+         
     
+    ?>
 
-<div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
-  <script src="tests.js"></script>
 
-<div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#Input Grades">Input Grades</a>
-  <a href="#OutPut Grades">OutPut Grades</a>
-  <a href="#Enter Coursework ">Enter Coursework</a>
-</div>
-  <div class="main"> 
-        
-        <title>Student Selection</title>
-       
-            <fieldset style="width:900px">
-                <legend><b>Student Section:</b></legend>
-        
+<!DOCTYPE html>
+<html>
+<!-- Taken from user story Login :-Create a main landing page for staff once they have logged in that displays options.  -->  
+
+<head>
+    <title>
+        Student Selection Screen
+    </title>
+    <style>
             
-                <table border="1">
-                    <tr><td>Student ID #</td><td><input type="submit" value="StudentID"></td></tr>
-                    <tr><td>Student Course Code</td><td><input type="submit" value="CourseID"></td></tr>
-                    <tr><td>Student UserName</td><td><input type="submit" value="UserName"></td></tr>
-                 
-                    
-                    
-                </table><br/><br/>
-                <input type="button" value="Get Result">
-            </fieldset>
+        table, tr,th,td
+        {
+            
+          border: 1px solid black; 
+        }
+       
+    </style>    
+    <link href="index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <script src="main.js"></script>
 
-    </body>
+
+        
+ <h1>
+        SEARCH FOR STUDENTS:
+      </h1>
+
+
+<form action ="StudentSelectionScreen.php" method="post">
+    <input type="text" name="studentID" placeholder="Student ID number"> required/><br><br>
+      <input type="submit" name="search" value="Filter"/><br><br>
+      <table>
+          <tr>
+              <th> Student Matric ID </th>
+              <th> Student First Name </th>
+              <th> Student Last Name </th>
+          </tr>
+          
+          <?php while($row = mysqli_fetch_array($serach_result)):?>
+          
+          <tr>
+              <td><?php echo $row[stuMatric];?> </td>
+              <td><?php echo $row[firstName];?> </td>
+              <td><?php echo $row[secondName];?> </td>
+          </tr>
+          
+          <?php endwhile;?>
+  
+          
+          
+      </table>
+</form>
+</body>
+</html>
+
+       
+<!-- [SEARCH RESULTS] -->
+
+    <?php
+    
+    $query = mysql_query("select * from sc_students");
+    if (isset($_POST['search'])) {
+      if (count($results) > 0) {
+        foreach ($results as $r) {
+          printf("<div>%s - %s</div>", $r['stuMatric'],$r['firstName'], $r['secondName']);
+        }
+      } else {
+        echo "No results found";
+      }
+    }
+    ?>
+  </body>
 </html>

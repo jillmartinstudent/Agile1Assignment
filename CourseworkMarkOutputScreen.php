@@ -1,87 +1,95 @@
-   <!--? php 
-require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php')
-   -->
+   <?php 
+require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
+
+
+
+
+   $conn = mysql_connect($sc_students, $sc_submissions, $sc_coursework, $sc_modules, $sc_lecturers);
+   if(! $conn ) {
+      die('Could not connect: ' . mysql_error());
+   }
+
+  
+ 
+$sql = "SELECT *  FROM sc_students, sc_submissions NATURAL JOIN stuMatric  
+where stuMatric = {$stuMatric};    
+
+
+
+
+
+	$stuMatric=$_GET[stuMatric];
+	$firstName=$_GET[firstName];
+	$secondName=$_GET[secondName];
+        
+	$moduleId=$_GET[moduleId];
+	$title=$_GET[title];
+        
+	$lectuerId=$_GET[lectuerId];
+	$firstName=$_GET[firstName];
+	$secondName=$_GET[secondName];
+        
+	$courseworkId=$_GET[courseworkId];
+	$mark=$_GET[mark];
+        
+
+?>
+
 
 <!DOCTYPE html>
-
-
 <html>
-<!--   
-$conn=mysql_connect("hostname","username","password");
-mysql_select_db("databasename",$conn);  
 
---> 
- 
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+<!-- Taken from   -->  
+
+
     
+  <h1>  Student Selection Screen </h1>
+    
+   
+<center>
+	<table border=1>
+		<tr>
+		<td>
+			<table  width=100%>
+			<tr>
+				<td>
+					<img src='images.jpg' width=120 height=120>
+				</td>
+				<td>
+					<b><font size='5'>Coursework Mark Results </font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b><br><br>
+					<font size='4' color='grey'><b><?php  echo "$title"></b></font>?>
+				</td>
+			</tr>
+			</table>
+		</td>
+		</tr>
+		<tr>
+		<td>
+			<table width=100%>
+				<tr><td><font size='4'><?php echo "$stuMatric"; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "$firstName";?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo" lastName";?></font></td></tr>
+				<tr><td><font size='4'><?php echo "$moduleId"?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo"$gender";?></font></td></tr>
+			</table>
+		</td>
+		</tr>
+		<tr>
+		<td>
+			<table border=1 width=100%>
+				<tr><th><i>Lectuer Id</i></th><th><i>First Name</i></th><th><i>Last Name </i></th><th><i>Course Work ID</i></th><th><i>Marks obtained</i></th></tr>
+				<tr><td>lectuerId</td><td>firstName</td><td>secondName</td>  <td><?php echo "$courseworkId"; ?></td><td><?php echo "$mark"; ?></td></tr>
 
-<div class="sidenav">
-  <a href="#about">About</a>
-  <a href="#Input Grades">Input Grades</a>
-  <a href="#OutPut Grades">OutPut Grades</a>
-  <a href="#Enter Coursework ">Enter Coursework</a>
-</div>
-  <div class="main"> 
-      
-    <head>
-        
-        
-      <div id="qunit"></div>
-  <div id="qunit-fixture"></div>
-  <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
-  <script src="tests.js"></script>  
-  
-  
-        <title>Student Results</title>
-     
-            <fieldset style="width:600px">
-                <legend><b>Student Selection:</b></legend>
-                     <table border="1">
-                <tr><td>Student ID:<input type="text" id="txtStudentID"> </td></tr>
-                <tr><td>Student FirstName:<input type="text" id="txtFirstName"> </td></tr>
-                <tr><td>Student LastName:<input type="text" id="txtLastName"> </td></tr> 
-                <tr><td>Student Module:<input type="text" id="txtModule"> </td></tr>
-                     
-               
-                <tr><td><input type="button" class="button button2" value="Get Result"></td></tr>
-                 </table><br/><br/>
-            </fieldset>
-            
-            <h2>Selected Student Report Card</h2>
-            
-            <table border="1">
-                <tr><td>Student ID</td><td><input type="text" id="txtStudentID" readonly></td></tr>
-                <tr><td>Student FirstName</td><td><input type="text" id="txtFirstName" readonly></td></tr>
-                <tr><td>Student LastName</td><td><input type="text" id="txtLastName" readonly></td></tr>
-                <tr><td>Student Module</td><td><input type="text" id="txtStudentModule" readonly></td></tr>
-                <tr><td>Lecturer</td><td><input type="text" id="txtLecturer" readonly></td></tr>
-                            
-<?php
-echo '<table>
-<tr>
-<td>Forename</td>
-<td>Surname</td>
-</tr>';
-<!--
-$sql="SELECT * from table where sequence = '".$_GET["sequence"]."' ";
-$rs=mysql_query($sql,$conn) or die(mysql_error());
-while($result=mysql_fetch_array($rs))
+				
+			</table>
+		</td>
+		</tr>
 
+		<tr>
+		<td>
+			<table>
+				<tr><td><b><font size='4'>Result:&nbsp;&nbsp;&nbsp;&nbsp;<?php echo "$s"; ?></font></b></td></tr>
+			</table>
+		</td>
+		</tr>
+	</table>
+</center>
 
-{
-echo '<tr>
--->
-    <tr><td>CourseWork</td><td><input .$result[id="txtCourseWork"].' readonly></td></tr>
-    <tr><td>StudentMark</td><td><input .$result[id="txtStudentMark"].' readonly></td></tr>
-
-</tr>
-}
-echo '</table>';
-
-
-           
-            </table>
-    </body>
 </html>
