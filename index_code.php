@@ -19,12 +19,12 @@ if (isset($_POST['submit'])) {
   }
 
   if (!empty($emailAdd) || !empty($passwd)) {
-  	$sql = "SELECT * FROM users WHERE email_address='$emailAdd' AND password='$pwd'";
+  	$sql = "SELECT * FROM sc_users WHERE emailAddress='$emailAdd' AND password='$pwd'";
         $result = mysqli_query($connection, $sql);
 
   	if (mysqli_num_rows($result) == 1) {
   	  $_SESSION['email'] = $emailAdd;
-  	  header('location: home.php');
+  	  return("Thanks for signing in!!");
   	}else {
   		$_SESSION["error"] = $error;
                 header("location: index.php");
