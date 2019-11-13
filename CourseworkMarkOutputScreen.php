@@ -10,7 +10,7 @@
     //include db connection details, can't link using full www path as I think it's disabled for security reasons
 	//using path on disk instead
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
-			
+
 	//some test stuff
 	$test = "SELECT a.stuMatric AS 'matric', mark, submittedDate, c.title AS 'coursetitle', m.title AS 'moduletitle', s.firstName AS 'stufirst', s.secondName AS 'stusecond', l.title AS 'lectitle', l.firstName as 'lecfirst', l.secondName AS 'lecsecond'
 	FROM sc_submissions a
