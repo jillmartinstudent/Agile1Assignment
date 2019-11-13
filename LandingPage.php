@@ -21,15 +21,15 @@
         <header>
             <nav id="main-navigation">
                 <ul>
-                    <li><a href="index.php">Return to Home Page</a></li>
-                    <li><a href="page2.php">Register Student</a></li>
-                    <li><a href="page3.php">View Student</a></li>
-                    <li><a href="page4.php">View Coursework</a></li>
-                    <li><a href="page5.php">Create Coursework</a></li>
-                    <li><a href="page6.php">Edit Coursework</a></li>
-                    <li><a href="page7.php">Add Marks</a></li>
-                    <li><a href="page8.php">Display Average</a></li>
-                    <li><a href="page9.php">Display Finald Alphanumeric Grade</a></li>
+                    <li><a href="index.php">Return to Login Page</a></li>
+                    <li><a>Register Student</a></li>
+                    <li><a>View Student</a></li>
+                    <li><a href="view_coursework.php">View Coursework</a></li>
+                    <li><a>Create Coursework</a></li>
+                    <li><a>Edit Coursework</a></li>
+                    <li><a>Add Marks</a></li>
+                    <li><a href="view_average_mark.php">Display Average</a></li>
+                    <li><a href="StudentSelectionScreen.php">Display Final Alphanumeric Grade</a></li>
                 </ul>
             </nav>
         </header>

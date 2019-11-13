@@ -56,9 +56,9 @@ else {
       </h1>
 
 
-<form action ="StudentSelectionScreen.php" method="post">
+<form action ="convert_final_marks.php" method="post">
     <input type="text" name="studentID" placeholder="Student ID number"> required/><br><br>
-      <input type="submit" name="search" value="Filter"/><br><br>
+      <input type="submit" name="search" value="Submit"/><br><br>
       <table>
           <tr>
               <th> Student Matric ID </th>

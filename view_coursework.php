@@ -21,14 +21,12 @@ Select from pre-defined option in the field below
 	$courses = "SELECT courseworkId, title FROM sc_coursework";
     $result = mysqli_query($connection, $courses);
 	$numberOfRows = mysqli_affected_rows($connection);
-	
-	print('Number of rows returned is: ' . $numberOfRows);
 
     mysqli_close($connection);
 	
 ?>
 
-<form action="return_courseware.php" method="post">
+<form action="CourseworkMarkOutputScreen.php" method="post">
 <select>
     <?php foreach($result as $course): ?>
         <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>

@@ -21,8 +21,6 @@ Select from pre-defined option in the field below
 	$courses = "SELECT stuMatric, firstName, secondName FROM sc_students";
     $result = mysqli_query($connection, $courses);
 	$numberOfRows = mysqli_affected_rows($connection);
-	
-	print('Number of rows returned is: ' . $numberOfRows);
 
     mysqli_close($connection);
 	
