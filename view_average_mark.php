@@ -2,9 +2,9 @@
 <html>
     <head>
     <title>View a student's average mark</title>   
-    <!--link href="index.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <script src="main.js"></script-->
+    <script src="main.js"></script>
     </head>
 <body>
 <!-- Taken from 'View marks for specific coursework' user story-->
@@ -28,13 +28,12 @@ Select from pre-defined option in the field below
 <form action="return_average_mark.php" method="post">
 <select name="value">
     <?php foreach($result as $mark): ?>
-        <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?><?= $mark['secondName']; ?></option>
+        <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?>  <?= $mark['secondName']; ?></option>
     <?php endforeach; ?>
  
 </select>
 <button type="submit" name="submit" >Submit</button>
  
- </form>
-
+</form>
 </body>
 </html>
