@@ -26,11 +26,14 @@ Select from pre-defined option in the field below
 	
 ?>
 <form action="return_average_mark.php" method="post">
-<select>
+<select name="value">
     <?php foreach($result as $mark): ?>
-        <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?><?= $mark['secondName']; ?></option>
+        <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?>  <?= $mark['secondName']; ?></option>
     <?php endforeach; ?>
  
 </select>
-<input type="submit">
-</form-->
+<button type="submit" name="submit" >Submit</button>
+ 
+</form>
+</body>
+</html>

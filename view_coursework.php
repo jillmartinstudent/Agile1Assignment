@@ -27,11 +27,14 @@ Select from pre-defined option in the field below
 ?>
 
 <form action="CourseworkMarkOutputScreen.php" method="post">
-<select>
+<select name="value">
     <?php foreach($result as $course): ?>
         <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>
     <?php endforeach; ?>
  
 </select>
-<input type="submit">
-</form-->
+<button type="submit" name="submit" >Submit</button>
+</form>
+
+</body>
+</html>
