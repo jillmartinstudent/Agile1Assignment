@@ -1,6 +1,6 @@
 //Form login validation code
 
-function IsEmpty() {
+/*function IsEmpty() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     if (email == "" || password == "") {
@@ -12,5 +12,8 @@ function IsEmpty() {
         window.open("LandingPage.php");
     }
 }
+*/
 
-
+function IsEmpty() {
+        window.open("LandingPage.php");
+    }
