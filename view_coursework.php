@@ -26,7 +26,7 @@ Select from pre-defined option in the field below
 	
 ?>
 
-<form action="CourseworkMarkOutputScreen.php" method="post">
+<form action="coursework_output.php" method="post">
 <select name="value">
     <?php foreach($result as $course): ?>
         <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>
