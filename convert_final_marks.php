@@ -13,10 +13,10 @@
 <h2> Convert all student final marks into the Alpha Numeric Scale </h2>
 
 <?php
-//Calculate the number of submissions, then sum the results 
+//Take the StuMatric from studentSelectionScreen, calculate the number of submissions for that student, then sum the results.
 
 $total=0; 
-$submissions = "SELECT submissionId FROM sc_submissions";
+$submissions = "SELECT submissionId FROM sc_submissions WHERE stuMatric IN (SELECT stuMatric FROM sc_students WHERE stuMatric = $valueToSearch)";
 $query = mysql_query($submissions);
 while ($row = mysql_fetch_assoc($query)) {
 echo "{$row['Submission: ']}<br />";
