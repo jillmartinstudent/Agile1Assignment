@@ -25,7 +25,7 @@ Select from pre-defined option in the field below
     mysqli_close($connection);
 	
 ?>
-<form action="convert_final_mark.php" method="post">
+<form action="convert_final_marks.php" method="post">
 <select name="value">
     <?php foreach($result as $mark): ?>
         <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?>  <?= $mark['secondName']; ?></option>
