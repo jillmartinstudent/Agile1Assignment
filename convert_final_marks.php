@@ -16,7 +16,7 @@
 //Take the StuMatric from studentSelectionScreen, calculate the number of submissions for that student, then sum the results.
 
 $total=0; 
-$submissions = "SELECT submissionId FROM sc_submissions WHERE stuMatric IN (SELECT stuMatric FROM sc_students WHERE stuMatric = $valueToSearch)";
+$submissions = "SELECT submissionId FROM sc_submissions WHERE stuMatric = $valueToSearch";
 $query = mysql_query($submissions);
 while ($row = mysql_fetch_assoc($query)) {
 echo "{$row['Submission: ']}<br />";
