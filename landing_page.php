@@ -29,7 +29,7 @@
                     <li><a>Edit Coursework</a></li>
                     <li><a>Add Marks</a></li>
                     <li><a href="view_average_mark.php">Display Average</a></li>
-                    <li><a href="StudentSelectionScreen.php">Display Final Alphanumeric Grade</a></li>
+                    <li><a href="student_selection.php">Display Final Alphanumeric Grade</a></li>
                 </ul>
             </nav>
         </header>

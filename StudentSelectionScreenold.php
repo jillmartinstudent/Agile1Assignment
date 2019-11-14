@@ -7,9 +7,7 @@
     <script src="main.js"></script>
     </head>
 <body>
-<!-- Taken from user story Login :-Create a main landing page for staff once they have logged in that displays options.  --> 
-<h2>View a student's average mark</h2>
-Select from pre-defined option in the field below
+
 <p>
 <?php    
 	
@@ -58,7 +56,7 @@ else {
               <th> Student Last Name </th>
           </tr>
           
-          <?php while($row = mysqli_fetch_array($serach_result)):?>
+          <?php while($row = mysqli_fetch_array($search_result)):?>
           
           <tr>
               <td><?php echo $row[stuMatric];?> </td>
