@@ -8,30 +8,33 @@
     </head>
 <body>
 <!-- Taken from 'View marks for specific coursework' user story-->
+
 <h2>View marks for coursework</h2>
 Select from pre-defined option in the field below
 <p>
 <?php    
 	
-    //include db connection details, can't link using full www path as I think it's disabled for security reasons
-	//using path on disk instead
-	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
+//include db connection details, can't link using full www path as I think it's disabled for security reasons
+//using path on disk instead
+    require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 			
-	//some test stuff
-	$courses = "SELECT courseworkId, title FROM sc_coursework";
+//some test stuff
+    
+    $courses = "SELECT courseworkId, title FROM sc_coursework";
     $result = mysqli_query($connection, $courses);
-	$numberOfRows = mysqli_affected_rows($connection);
+    $numberOfRows = mysqli_affected_rows($connection);
 
     mysqli_close($connection);
 	
-?>
+    ?>
 
 <form action="coursework_output.php" method="post">
 <select name="value">
     <?php foreach($result as $course): ?>
-        <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>
+    <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>
     <?php endforeach; ?>
  
+    
 </select>
 <button type="submit" name="submit" >Submit</button>
 </form>

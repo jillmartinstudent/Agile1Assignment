@@ -1,7 +1,6 @@
 <?php
-	
-	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
-	
+require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -11,8 +10,6 @@
 <head>
     <title>
         Student Coursework Management portal
-        
-     
     </title>
     <link href="index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -20,15 +17,15 @@
 
  </head>
  
- <h1>  Student Coursework Management Portal </h1>
+    <h1>  Student Coursework Management Portal </h1>
  
- <h2>    Please select a option: </h2>
+    <h2>    Please select a option: </h2>
  
  <!-- Links to menu options as defined in the product backlog -->
 
         <header>
-            <nav id="main-navigation">
-                <ul>
+        <nav id="main-navigation">
+        <ul>
                     <li><a href="index.php">Return to Login Page</a></li>
                     <li><a>Register Student</a></li>
                     <li><a>View Student</a></li>
@@ -38,8 +35,8 @@
                     <li><a>Add Marks</a></li>
                     <li><a href="view_average_mark.php">Display Average</a></li>
                     <li><a href="student_selection.php">Display Final Alphanumeric Grade</a></li>
-                </ul>
-            </nav>
+        </ul>
+        </nav>
         </header>
         <div id="main-contents">
         <!--     This is the Landing Page  -->
@@ -48,7 +45,7 @@
         
         <footer>
 
-            <h3>    Team 1 Agile Software Engineering </h3>
+        <h3>    Team 1 Agile Software Engineering </h3>
         </footer>
     </body>
 </html>
