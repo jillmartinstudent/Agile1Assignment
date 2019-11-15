@@ -1,4 +1,12 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>View marks for coursework</title>   
+    <link href="index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <script src="main.js"></script>
+    </head>
+<body>
 
    $conn = mysql_connect($sc_students, $sc_submissions, $sc_coursework, $sc_modules, $sc_lecturers);
    if(! $conn ) {
@@ -24,6 +32,10 @@
 	
 	print('Number of rows returned is: ' . $numberOfRows);
 ?>
+   <h2> Coursework: </h2>
+   <table id="Coursework"> 
+   
+   
 	<h2>SQL Output:</h2>
         <table id="allMarks">
             <tr>
@@ -31,9 +43,7 @@
 				<th>Student Name</th>
                 <th>Mark</th>
                 <th>Date Submitted</th>
-                <th>Coursework</th>
-                <th>Module</th>
-                <th>Lecturer</th>
+
             </tr>
             <?php
 

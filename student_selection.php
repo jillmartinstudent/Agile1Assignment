@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>View marks for coursework</title>   
+    <title>View a student's average mark</title>   
     <link href="index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <script src="main.js"></script>
     </head>
 <body>
 <!-- Taken from 'View marks for specific coursework' user story-->
-<h2>View marks for coursework</h2>
+<h1>Search for Students:</h1>
 Select from pre-defined option in the field below
 <p>
 <?php    
@@ -17,25 +17,23 @@ Select from pre-defined option in the field below
 	//using path on disk instead
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 			
-	$courses = "SELECT courseworkId, title FROM sc_coursework";
+	//some test stuff
+	$courses = "SELECT stuMatric, firstName, secondName FROM sc_students";
     $result = mysqli_query($connection, $courses);
 	$numberOfRows = mysqli_affected_rows($connection);
 
     mysqli_close($connection);
 	
 ?>
-
-<!-- Query the database for all available coursework titles and generate a drop-down list from the results. -->
-
-<form action="coursework_output.php" method="post">
+<form action="convert_final_marks.php" method="post">
 <select name="value">
-    <?php foreach($result as $course): ?>
-        <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>
+    <?php foreach($result as $mark): ?>
+        <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?>  <?= $mark['secondName']; ?></option>
     <?php endforeach; ?>
  
 </select>
 <button type="submit" name="submit" >Submit</button>
+ 
 </form>
-
 </body>
 </html>

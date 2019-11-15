@@ -1,5 +1,5 @@
 //Form login validation code
 
 function IsEmpty() {
-        window.open("LandingPage.php");
+        window.open("landing_page.php");
     }
