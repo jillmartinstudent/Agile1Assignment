@@ -8,10 +8,10 @@
     </head>
 <body>
 
-   $conn = mysql_connect($sc_students, $sc_submissions, $sc_coursework, $sc_modules, $sc_lecturers);
-   if(! $conn ) {
-      die('Could not connect: ' . mysql_error());
-   }
+    
+    
+    
+    
 <?php
     //test php to check 
 	
@@ -43,7 +43,9 @@
 				<th>Student Name</th>
                 <th>Mark</th>
                 <th>Date Submitted</th>
-
+                <th>Course </th>
+                <th>Module </th>
+                <th>Lecturer </th>
             </tr>
             <?php
 
@@ -54,7 +56,7 @@
                 echo "<td>" . $row["mark"] .  "</td>";
                 echo "<td>" . $row["submittedDate"] .  "</td>";
                 echo "<td>" . $row["coursetitle"] .  "</td>";
-				echo "<td>" . $row["moduletitle"] .  "</td>";
-				echo "<td>" . $row["lectitle"] . " " . $row["lecfirst"] . " " . $row["lecsecond"] .  "</td></tr>";
+		echo "<td>" . $row["moduletitle"] .  "</td>";
+		echo "<td>" . $row["lectitle"] . " " . $row["lecfirst"] . " " . $row["lecsecond"] .  "</td></tr>";
             }
 
