@@ -1,6 +1,14 @@
-<!--Calculation to convert all student final marks and output in the Alpha Numeric Scale-->
+!--Calculation to convert all student final marks and output in the Alpha Numeric Scale-->
+<?php
+	
+    //db connection
+    require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 
-<?php require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php'); ?>
+ 
+    $_POST["value"];
+	
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -14,6 +22,7 @@
 
 <?php
 //Take the StuMatric from studentSelectionScreen, calculate the number of submissions for that student, then sum the results.
+
 
 $total=0; 
 $submissions = "SELECT submissionId FROM sc_submissions WHERE stuMatric = $valueToSearch";
