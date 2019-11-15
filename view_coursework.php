@@ -17,7 +17,6 @@ Select from pre-defined option in the field below
 	//using path on disk instead
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 			
-	//some test stuff
 	$courses = "SELECT courseworkId, title FROM sc_coursework";
     $result = mysqli_query($connection, $courses);
 	$numberOfRows = mysqli_affected_rows($connection);
@@ -26,6 +25,7 @@ Select from pre-defined option in the field below
 	
 ?>
 
+<!-- Query the database for all available coursework titles and generate a drop-down list from the results. -->
 <form action="CourseworkMarkOutputScreen.php" method="post">
 <select name="value">
     <?php foreach($result as $course): ?>
