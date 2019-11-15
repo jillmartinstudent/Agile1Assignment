@@ -1,13 +1,15 @@
 <!DOCTYPE html>
+
 <html>
     <head>
     <title>View marks for coursework</title>   
+    
     <link href="index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <script src="main.js"></script>
     </head>
 <body>
-<!-- Taken from 'View marks for specific coursework' user story-->
+
 
 <h2>View marks for coursework</h2>
 Select from pre-defined option in the field below
@@ -16,15 +18,13 @@ Select from pre-defined option in the field below
 	
 //include db connection details, can't link using full www path as I think it's disabled for security reasons
 //using path on disk instead
+
+// Taken from 'View marks for specific coursework' user story
     require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
-			
-<<<<<<< HEAD
-//some test stuff
-    
+      ?>
+    <?php
     $courses = "SELECT courseworkId, title FROM sc_coursework";
-=======
-	$courses = "SELECT courseworkId, title FROM sc_coursework";
->>>>>>> e0b816fc8cabeb66aae14c554b82e52b508d77f3
+
     $result = mysqli_query($connection, $courses);
     $numberOfRows = mysqli_affected_rows($connection);
 
@@ -34,7 +34,7 @@ Select from pre-defined option in the field below
 
 <!-- Query the database for all available coursework titles and generate a drop-down list from the results. -->
 
-<form action="CourseworkMarkOutputScreen.php" method="post">
+<form action="coursework_output.php" method="post">
 <select name="value">
     <?php foreach($result as $course): ?>
     <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>

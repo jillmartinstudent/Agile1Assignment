@@ -8,13 +8,13 @@
     </head>
 <body>
 
-    // Taken from view coursework user story
+  
     
     
     
 <?php
     //test php to check 
-	
+    //Taken from view coursework user story
     //include db connection details, can't link using full www path as I think it's disabled for security reasons
 	//using path on disk instead
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
