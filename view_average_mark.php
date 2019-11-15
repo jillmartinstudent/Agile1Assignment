@@ -17,7 +17,6 @@ Select from pre-defined option in the field below
 	//using path on disk instead
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 			
-	//some test stuff
 	$courses = "SELECT stuMatric, firstName, secondName FROM sc_students";
     $result = mysqli_query($connection, $courses);
 	$numberOfRows = mysqli_affected_rows($connection);
@@ -25,6 +24,7 @@ Select from pre-defined option in the field below
     mysqli_close($connection);
 	
 ?>
+<!-- Query the database for a list of students and generate a drop-down list from the results. -->
 <form action="return_average_mark.php" method="post">
 <select name="value">
     <?php foreach($result as $mark): ?>
