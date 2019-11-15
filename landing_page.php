@@ -11,13 +11,21 @@
 <head>
     <title>
         Student Coursework Management portal
+        
+     
     </title>
     <link href="index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <script src="main.js"></script>
 
  </head>
-    <body>
+ 
+ <h1>  Student Coursework Management Portal </h1>
+ 
+ <h2>    Please select a option: </h2>
+ 
+ <!-- Links to menu options as defined in the product backlog -->
+
         <header>
             <nav id="main-navigation">
                 <ul>
@@ -34,10 +42,13 @@
             </nav>
         </header>
         <div id="main-contents">
-            This is the Landing Page
+        <!--     This is the Landing Page  -->
         </div>
+        
+        
         <footer>
-            Team 1 Agile Software Engineering
+
+            <h3>    Team 1 Agile Software Engineering </h3>
         </footer>
     </body>
 </html>
