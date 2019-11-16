@@ -31,7 +31,7 @@ Select from pre-defined option in the field below
 
 <!-- Query the database for all available coursework titles and generate a drop-down list from the results. -->
 
-<form action="CourseworkMarkOutputScreen.php" method="post">
+<form action="coursework_output.php" method="post">
 <select name="value">
     <?php foreach($result as $course): ?>
     <option value="<?= $course['courseworkId']; ?>"><?= $course['title']; ?></option>
