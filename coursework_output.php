@@ -18,7 +18,13 @@
     //include db connection details, can't link using full www path as I think it's disabled for security reasons
 	//using path on disk instead
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
+$_POST["value"] = 1;
 
+        
+        
+        
+        
+        
 	//some test stuff
 	$test = "SELECT a.stuMatric AS 'matric', mark, submittedDate, c.title AS 'coursetitle', m.title AS 'moduletitle', s.firstName AS 'stufirst', s.secondName AS 'stusecond', l.title AS 'lectitle', l.firstName as 'lecfirst', l.secondName AS 'lecsecond'
 	FROM sc_submissions a
@@ -26,7 +32,7 @@
 	LEFT OUTER JOIN sc_modules m ON c.moduleId = m.moduleId
 	LEFT OUTER JOIN sc_students s ON a.stuMatric = s.stuMatric
 	LEFT OUTER JOIN sc_lecturers l ON m.lecturerId = l.lecturerId
-	WHERE a.courseworkId = 1";
+	WHERE a.courseworkId = '" . $_POST["value"] . "'";
     $result = mysqli_query($connection, $test);
 	$numberOfRows = mysqli_affected_rows($connection);
 	
@@ -40,7 +46,7 @@
         <table id="allMarks">
             <tr>
                 <th>Student Number</th>
-				<th>Student Name</th>
+		<th>Student Name</th>
                 <th>Mark</th>
                 <th>Date Submitted</th>
                 <th>Course </th>
