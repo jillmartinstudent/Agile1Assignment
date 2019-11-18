@@ -24,7 +24,23 @@
 
 <h2> Convert all student final marks into the Alpha Numeric Scale </h2>
 
+Student Matriculation Number: <?php echo $_POST["studentID"]; ?> <br><br>
+
 <?php
+//Take the StuMatric from studentSelectionScreen, calculate the number of submissions for that student
+
+$submissions = "SELECT s.mark, s.submittedDate, s.mitigatingReq, s.mitigatingUph, s.secondSub, c.title
+FROM sc_submissions s LEFT OUTER JOIN sc_coursework c
+ON s.courseworkId = c.courseworkId
+WHERE stuMatric = '" . $_POST["studentID"] . "'";
+$result = mysqli_query($connection, $submissions);
+$numberOfRows = mysqli_affected_rows($connection);
+
+if ($result-> num_rows > 0) {
+        echo "The number of submissions for this student is: $numberOfRows <br> <br>";
+    } else {
+    echo "0 results";
+        
 //Take the StuMatric from studentSelectionScreen, calculate the number of submissions for that student, then sum the results.
 
 
@@ -34,43 +50,38 @@ $query = mysql_query($submissions);
 while ($row = mysql_fetch_assoc($query)) {
 echo "{$row['Submission: ']}<br />";
 $total += $row['Submission'];
-}
-echo "Total = $total";
-        
-?>
 
-<br> <br> 
-
-    
-<?php
-//divide the sum of the results by the number of submissions (avg Mark) and round to 0 decimal places
-        
-if ($query -> num_rows > 0) {
-    $avgMark = $total / $submissions;
-    echo ("The average mark is: (round($avgMark,0))");
 }
 
-    mysqli_close($connection);
-	
-?>
+//get total marks for all submissions and create average mark
 
-<br> <br> 
+$marks = "SELECT SUM(mark)as total_mark FROM sc_submissions WHERE stuMatric = '" . $_POST["studentID"] . "'";
+$sumResult = mysqli_query($connection, $marks);
+$row = mysqli_fetch_assoc($sumResult);
+$total = $row["total_mark"];
+$avMark = round($total/$numberOfRows);
 
-<?php
-// lookup the number from the sc_markingscheme table.
-
-$grade = "SELECT markingScale FROM sc_markingscheme WHERE percentage".$avgMark;
-$query1 = mysql_query($grade);
-$final;
-
-if ($query1->num_rows > 0) {
-    //output data of each row
-    $row = $query1->fetch_assoc();
-    $final = $row['markingscale'];
-} else {
-    echo "No results available";
-    
+if ($sumResult-> num_rows > 0) {
+        echo "The average mark for this student is: $avMark <br> <br>";
+    } else {
+    echo "0 results";
 }
+
+//Lookup number from the sc_markingscheme table
+
+$scale = "SELECT markingScale FROM sc_markingscheme WHERE percentage = '$avMark'";
+$output = mysqli_query($connection, $scale);
+$rows = mysqli_fetch_assoc($output);
+$endResult = mysqli_affected_rows($connection);
+
+if ($output-> num_rows > 0) {
+        echo "Marking Scale Conversion: $endResult";
+    } else {
+    echo "0 results";
+}
+
+mysqli_close($connection);
 
 ?>
 
+</html>
