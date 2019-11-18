@@ -9,6 +9,7 @@
     <body>
 
         <h2> View marks for coursework </h2>
+        <p>Select from one of the pre-defined options in the drop down field below</p>
 
 <?php  
     
@@ -24,7 +25,7 @@
     ?>
         
         
-<!-- Query the coursework table within the database to populate the dropdown field -->
+<!-- Query the coursework table within the database to populate the drop down field -->
 <form action="coursework_output.php" method="post">
 <select name="value">
     
