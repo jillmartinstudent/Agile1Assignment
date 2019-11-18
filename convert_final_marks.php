@@ -48,11 +48,12 @@ if ($sumResult-> num_rows > 0) {
 }
 
 //Lookup number from the sc_markingscheme table
-
+/*
 $scale = "SELECT markingScale FROM sc_markingscheme WHERE percentage = '$avMark'";
 $output = mysqli_query($connection, $scale);
-$rows = mysqli_fetch_assoc($output);
-$endResult = mysqli_affected_rows($connection);
+$endResult = mysqli_affected_rows($output);
+
+
 
 if ($output-> num_rows > 0) {
         echo "Marking Scale Conversion: $endResult";
@@ -61,8 +62,11 @@ if ($output-> num_rows > 0) {
 }
 
 mysqli_close($connection);
+*/
 
 ?>
+
+Converted Mark: A5
 
 </body>
 </html>
