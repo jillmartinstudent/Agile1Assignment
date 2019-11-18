@@ -12,7 +12,7 @@
 
 <h2> Convert all student final marks into the Alpha Numeric Scale </h2>
 
-Student Matriculation Number: <?php echo $_POST["studentID"]; ?> <br><br>
+Student Matriculation Number: <?php echo $_POST["value"]; ?> <br><br>
 
 <?php
 
@@ -23,7 +23,7 @@ require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 $submissions = "SELECT s.mark, s.submittedDate, s.mitigatingReq, s.mitigatingUph, s.secondSub, c.title
 FROM sc_submissions s LEFT OUTER JOIN sc_coursework c
 ON s.courseworkId = c.courseworkId
-WHERE stuMatric = '" . $_POST["studentID"] . "'";
+WHERE stuMatric = '" . $_POST["value"] . "'";
 $result = mysqli_query($connection, $submissions);
 $numberOfRows = mysqli_affected_rows($connection);
 
@@ -35,7 +35,7 @@ if ($result-> num_rows > 0) {
 
 //get total marks for all submissions and create average mark
 
-$marks = "SELECT SUM(mark)as total_mark FROM sc_submissions WHERE stuMatric = '" . $_POST["studentID"] . "'";
+$marks = "SELECT SUM(mark)as total_mark FROM sc_submissions WHERE stuMatric = '" . $_POST["value"] . "'";
 $sumResult = mysqli_query($connection, $marks);
 $row = mysqli_fetch_assoc($sumResult);
 $total = $row["total_mark"];
@@ -48,12 +48,9 @@ if ($sumResult-> num_rows > 0) {
 }
 
 //Lookup number from the sc_markingscheme table
-/*
 $scale = "SELECT markingScale FROM sc_markingscheme WHERE percentage = '$avMark'";
 $output = mysqli_query($connection, $scale);
 $endResult = mysqli_affected_rows($output);
-
-
 
 if ($output-> num_rows > 0) {
         echo "Marking Scale Conversion: $endResult";
@@ -62,11 +59,9 @@ if ($output-> num_rows > 0) {
 }
 
 mysqli_close($connection);
-*/
 
 ?>
 
-Converted Mark: A5
 
 </body>
 </html>
