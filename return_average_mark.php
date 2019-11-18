@@ -6,7 +6,7 @@
     //temporarily set post value until selection page is complete
     //$_POST["value"] = '155827896';
     //The correct value is now being passed from view_average_mark.php
-    $_POST["value"];
+    //$_POST["value"];
 	
 ?>
 

@@ -22,7 +22,7 @@
     <h1 id="title"> Student Coursework Management Portal </h1>
     <div class="loginbox">
         <h1> Login </h1>
-        <form method="post" action="index_code.php" name="form1" id="form1">
+        <form method="post" name="form1" id="form1">
             <label for="email">Email Address</label>
             <input id="email" type="email" name="email" placeholder="default@example.com" maxlength="30" class="form-control">
 

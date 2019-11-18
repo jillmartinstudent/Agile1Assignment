@@ -1,6 +1,3 @@
-<!--Calculation to convert all student final marks and output in the Alpha Numeric Scale-->
-
-<?php require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -10,6 +7,21 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 </head>
 <body>
+<!--Calculation to convert all student final marks and output in the Alpha Numeric Scale-->
+<?php
+	
+    //test php to check 
+	
+    //include db connection details, can't link using full www path as I think it's disabled for security reasons
+    //using path on disk instead
+    //db connection
+    require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
+
+     $_POST["value"];
+
+?>
+
+
 <h2> Convert all student final marks into the Alpha Numeric Scale </h2>
 
 Student Matriculation Number: <?php echo $_POST["studentID"]; ?> <br><br>
@@ -28,6 +40,17 @@ if ($result-> num_rows > 0) {
         echo "The number of submissions for this student is: $numberOfRows <br> <br>";
     } else {
     echo "0 results";
+        
+//Take the StuMatric from studentSelectionScreen, calculate the number of submissions for that student, then sum the results.
+
+
+$total=0; 
+$submissions = "SELECT submissionId FROM sc_submissions WHERE stuMatric = $valueToSearch";
+$query = mysql_query($submissions);
+while ($row = mysql_fetch_assoc($query)) {
+echo "{$row['Submission: ']}<br />";
+$total += $row['Submission'];
+
 }
 
 //get total marks for all submissions and create average mark

@@ -8,7 +8,7 @@
     </head>
 <body>
 <!-- Taken from 'View marks for specific coursework' user story-->
-<h2>View a student's average mark</h2>
+<h1>Search for Students:</h1>
 Select from pre-defined option in the field below
 <p>
 <?php    
@@ -17,6 +17,7 @@ Select from pre-defined option in the field below
 	//using path on disk instead
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 			
+	//some test stuff
 	$courses = "SELECT stuMatric, firstName, secondName FROM sc_students";
     $result = mysqli_query($connection, $courses);
 	$numberOfRows = mysqli_affected_rows($connection);
@@ -24,8 +25,7 @@ Select from pre-defined option in the field below
     mysqli_close($connection);
 	
 ?>
-<!-- Query the database for a list of students and generate a drop-down list from the results. -->
-<form action="return_average_mark.php" method="post">
+<form action="convert_final_marks.php" method="post">
 <select name="value">
     <?php foreach($result as $mark): ?>
         <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?>  <?= $mark['secondName']; ?></option>

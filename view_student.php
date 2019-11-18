@@ -19,7 +19,9 @@
 </head>
 
 <body id="document">
-    <h1 id="title"> Student Coursework Management Portal </h1>
+    <h1 id="title">View student</h1>
+	
+	<p>Under construction</p>
     
 </body>
 
