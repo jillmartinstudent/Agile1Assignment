@@ -20,7 +20,7 @@
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
     
     //hardcoded post variable for coursework selection
-    $_POST["value"] = 1;
+    //$_POST["value"] = 1;
 
     $test = "SELECT c.title AS 'coursetitle', m.title AS 'moduletitle', l.title AS 'lectitle', l.firstName as 'lecfirst', l.secondName AS 'lecsecond'
     FROM sc_coursework c
