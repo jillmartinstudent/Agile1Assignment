@@ -1,7 +1,7 @@
 <?php
 	
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
-	
+	//https://zeno.computing.dundee.ac.uk/2018-ga/gregjennings/AgileAssignment/Agile1Assignment/
 ?>
 
 <!DOCTYPE html>
@@ -28,17 +28,16 @@
 
             <label for="password">Password</label>
             <input id="password" type="password" name="password" placeholder="Password" minlength="8" class="form-control"><br>
-            
-            <?php
+
+            <?php /*
             if(isset($_SESSION["error"])){
                         $error = $_SESSION["error"];
                         echo "<span>$error</span>";
             } else {
                 $_SESSION["error"] = false;
             }
-            ?> <br>
+             */?> <br>
             
-           
 
             <br> <input type="submit" value="Login" name="submit" onclick="return IsEmpty()" /><br>
              
