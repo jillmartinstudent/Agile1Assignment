@@ -29,7 +29,6 @@
         transform: translate(-50%, -50%);
         box-sizing: border-box;
         padding: 60px 20px;
-        background-color: rgb(255, 222, 173);
     }
     
     h1 {
@@ -47,14 +46,13 @@
         padding: 14px 20px;
         margin: 8px 0;
         display: inline-block;
-        border: 1px solid #ccc;
+        border: 1px solid #ccc; 
         box-sizing: border-box;
         font-size: 10px;
     }
     
     input[type="submit"],
     input[type="button"] {
-        background-color: rgb(255, 222, 173);
         padding: 3px;
         text-align: center;
         display: inline-block;
@@ -80,3 +78,19 @@
         padding: 3px;	
         border-collapse: collapse
     }
+
+    /* register student form styling */
+    #newStu input {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    }
+
+    /* register student form styling */
+    #newModule input {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        }

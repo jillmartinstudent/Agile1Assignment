@@ -10,58 +10,59 @@
     
 <!--Calculation to convert all student final marks and output in the Alpha Numeric Scale-->
 
-<h2> Convert all student final marks into the Alpha Numeric Scale </h2>
-
-Student Matriculation Number: <?php echo $_POST["value"]; ?> <br><br>
+<h2> Student's Alpha Numeric Grade </h2>
 
 <?php
 
-require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
+    //connect to db
+    require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 
-//Take the StuMatric from studentSelectionScreen, calculate the number of submissions for that student
+    //get number of submissions details for selected student
+    $sql = "SELECT s.mark, s.submittedDate, s.mitigatingReq, s.mitigatingUph, s.secondSub, c.title
+    FROM sc_submissions s LEFT OUTER JOIN sc_coursework c
+    ON s.courseworkId = c.courseworkId
+    WHERE stuMatric = '" . $_POST["value"] . "'
+    ORDER BY s.submittedDate ";
+    $result = mysqli_query($connection, $sql);
+    $numberOfRows = mysqli_affected_rows($connection);
 
-$submissions = "SELECT s.mark, s.submittedDate, s.mitigatingReq, s.mitigatingUph, s.secondSub, c.title
-FROM sc_submissions s LEFT OUTER JOIN sc_coursework c
-ON s.courseworkId = c.courseworkId
-WHERE stuMatric = '" . $_POST["value"] . "'";
-$result = mysqli_query($connection, $submissions);
-$numberOfRows = mysqli_affected_rows($connection);
+    //get total marks for all submissions and create average mark
+    $sql = "SELECT SUM(mark) as total_mark FROM sc_submissions WHERE stuMatric = '" . $_POST["value"] . "'";
+    $sumResult = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_assoc($sumResult);
+    $total = $row["total_mark"];
 
-if ($result-> num_rows > 0) {
-        echo "The number of submissions for this student is: $numberOfRows <br> <br>";
-    } else {
-    echo "0 results";
+    if ($numberOfRows <> 0) {
+    $avMark = round($total/$numberOfRows);
     }
 
-//get total marks for all submissions and create average mark
+    //get student name
+    $sql = "SELECT firstName, secondName FROM sc_students WHERE stuMatric = '" . $_POST["value"] . "'";
+    $nameResult = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_assoc($nameResult);
+    $fullName = $row["firstName"] . " " . $row["secondName"];
 
-$marks = "SELECT SUM(mark)as total_mark FROM sc_submissions WHERE stuMatric = '" . $_POST["value"] . "'";
-$sumResult = mysqli_query($connection, $marks);
-$row = mysqli_fetch_assoc($sumResult);
-$total = $row["total_mark"];
-$avMark = round($total/$numberOfRows);
+    if ($numberOfRows <> 0) {
+        $sql = "SELECT DISTINCT s.markingScale AS 'scale', aggScale, descript, honoursClass
+        FROM sc_markingscheme s LEFT OUTER JOIN sc_markingdescript m
+        ON s.markingScale = m.markingScale
+        WHERE s.percentage = '" . $avMark . "'";
 
-if ($sumResult-> num_rows > 0) {
-        echo "The average mark for this student is: $avMark <br> <br>";
+        $result = mysqli_query($connection, $sql);
+        $alpharow = mysqli_fetch_assoc($result);
+        $scale = $alpharow["scale"];
+        $aggScale = $alpharow["aggScale"];
+        $desc = $alpharow["descript"];
+        $honours = $alpharow["honoursClass"];
+
+        echo "<p><b>" . $fullName . "'s (" . $_POST["value"] . ") final grade is : " . $scale . "</b></p><br>";
+        echo "<p>This is considered " . $desc . " and is/would be a " . $honours . " on the honours scale, with a aggregated scale of " . $aggScale . ".</p>";
+
     } else {
-    echo "0 results";
-}
+        echo "<p><b>" . $fullName . "'s (" . $_POST["value"] . ") has not completed any submissions yet.</b></p><br>";
+    }
 
-//Lookup number from the sc_markingscheme table
-$scale = "SELECT markingScale FROM sc_markingscheme WHERE percentage = '$avMark'";
-$output = mysqli_query($connection, $scale);
-$endResult = mysqli_affected_rows($output);
-
-if ($output-> num_rows > 0) {
-        echo "Marking Scale Conversion: $endResult";
-    } else {
-    echo "0 results";
-}
-
-mysqli_close($connection);
 
 ?>
-
-
 </body>
 </html>

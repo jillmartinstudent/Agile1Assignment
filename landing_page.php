@@ -30,13 +30,17 @@ require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
         <ul>
                     <li><a href="register_student.php">* Register Student</a></li>
                     <li><a href="view_student.php">* View Student</a></li>
-                    <li><a href="view_coursework.php">View Coursework</a></li>
+                    <li><a href="view_average_mark.php">Display Student's Average and Alphanumeric Grade</a></li>
+                    <br>
+                    <li><a href="create_module.php">* Create Module</a></li>
                     <li><a href="create_coursework.php">* Create Coursework</a></li>
                     <li><a href="edit_coursework.php">* Edit Coursework</a></li>
                     <li><a href="add_marks.php">* Add Marks</a></li>
-                    <li><a href="view_average_mark.php">Display Average</a></li>
-                    <li><a href="student_selection.php">Display Final Alphanumeric Grade</a></li>
-					<li><a href="index.php">Logout</a></li>
+                    <li><a href="view_coursework.php">View Coursework Results</a></li>
+                    <br>
+                    <li><a href="">* Add Lecturer</a></li>
+                    <br>
+                    <li><a href="index.php">Logout</a></li>
         </ul>
 		</br>
 		<p>* denotes under construction</p>

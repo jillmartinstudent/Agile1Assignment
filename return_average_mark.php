@@ -39,19 +39,44 @@
             $sumResult = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($sumResult);
             $total = $row["total_mark"];
-            $avMark = round($total/$numberOfRows);
-
+            
+            //avoid division of 0
+            if ($numberOfRows <> 0) {
+                $avMark = round($total/$numberOfRows);
+                } else {
+                    $avMark = 0;
+                }
+            
             //get student name
             $sql = "SELECT firstName, secondName FROM sc_students WHERE stuMatric = '" . $_POST["value"] . "'";
             $nameResult = mysqli_query($connection, $sql);
             $row = mysqli_fetch_assoc($nameResult);
             $fullName = $row["firstName"] . " " . $row["secondName"];
 
-            //below used to check correct number of rows and total mark sum is returned correctly
-            //echo "<p> variable rertuned: number of rows = " . $numberOfRows . " and total marks = " . $total . "</p>";
+            //populate page with details of student's average mark, marking scale and results
+            if ($numberOfRows <> 0) {
+                //get the scale and details for average mark
+                $sql = "SELECT DISTINCT s.markingScale AS 'scale', aggScale, descript, honoursClass
+                FROM sc_markingscheme s LEFT OUTER JOIN sc_markingdescript m
+                ON s.markingScale = m.markingScale
+                WHERE s.percentage = '" . $avMark . "'";
+        
+                $markResult = mysqli_query($connection, $sql);
+                $alpharow = mysqli_fetch_assoc($markResult);
+                $scale = $alpharow["scale"];
+                $aggScale = $alpharow["aggScale"];
+                $desc = $alpharow["descript"];
+                $honours = $alpharow["honoursClass"];
 
-            //average mark for student
-            echo '<h1>The average mark for ' . $fullName . ' (' . $_POST["value"] . ') ' . ' is ' . $avMark . '%</h1>';
+                echo "<h1>The average mark for " . $fullName . " (" . $_POST["value"] . ") " . " is " . $avMark . "%</h1>";
+                echo "<p><b>" . $fullName . "'s (" . $_POST["value"] . ") final grade is: " . $scale . "</b></p>";
+                echo "<p>This is considered " . $desc . " and is/would be a " . $honours . " on the honours scale, with a aggregated scale of " . $aggScale . ".</p>";
+        
+            } else {
+                //for students that haven't submitted yet
+                echo "<h1>The average mark for " . $fullName . " (" . $_POST["value"] . ") " . " is " . $avMark . "%</h1>";
+                echo "<p><b>" . $fullName . " (" . $_POST["value"] . ") has not completed any submissions yet.</b></p><br>";
+            }
             
         ?>
         <h2>Breakdown of marks:</h2>
