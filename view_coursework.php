@@ -98,7 +98,7 @@ navigator.appName == "Microsoft Internet Explorer"
     <body>
 
         <h2> View marks for coursework </h2>
-        <p>Select a module from one of the pre-defined options in the drop down field below</p>
+        <p>Select an assignment from one of the pre-defined options in the various drop down fields below</p>
 
             <?php  
         //include db connection details, can't link using full www path as I think it's disabled for security reasons
@@ -158,7 +158,7 @@ navigator.appName == "Microsoft Internet Explorer"
 </select> &nbsp;
 
 <!-- can add more levels if desired as "List5"+ -->
-<button onclick="getValues()">Show selections</button>
+<button onclick="getValues()">Show marks</button>
 </form>
 
     </body>
