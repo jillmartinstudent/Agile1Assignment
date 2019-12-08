@@ -108,7 +108,7 @@
             $honours = $alpharow["honoursClass"];
 
 
-            echo "<p><b>" . $fullName . "'s (" . $_POST["value"] . ") aggrigated score is: " . $totalwAgg . "</b></p>";
+            echo "<p><b>" . $fullName . "'s (" . $_POST["value"] . ") aggregated score is: " . $totalwAgg . " which is overall " . $scale . " on the marking scale.</b></p>";
             echo "<p><b>This is considered " . $desc . " and is/would be a " . $honours . " on the honours scale.</b></p>";
 
             
