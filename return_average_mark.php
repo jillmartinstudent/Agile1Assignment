@@ -3,26 +3,16 @@
     //db connection
     require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
 
-    //temporarily set post value until selection page is complete
-    //$_POST["value"] = '155827896';
-    //The correct value is now being passed from view_average_mark.php
-    //$_POST["value"];
-	
 ?>
 
 <!DOCTYPE html>
 <html>
-
-
-<head>
-    <title>
-        Student Coursework Management - Return Average Mark
-    </title>
-    <link href="index.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-    <script src="main.js"></script>
-
-</head>
+    <head>
+        <title>Student Coursework Management - Return Average Mark</title>
+        <link href="index.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+        <script src="main.js"></script>
+    </head>
     <body>
         <?php
             //get number of submissions details for selected student

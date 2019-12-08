@@ -64,7 +64,7 @@
 $test = "SELECT a.stuMatric AS 'matric', mark, submittedDate, s.firstName AS 'stufirst', s.secondName AS 'stusecond'
         FROM sc_submissions a
         LEFT OUTER JOIN sc_students s ON a.stuMatric = s.stuMatric
-        WHERE courseworkId = '" . $_POST["value"] . "'";
+        WHERE courseworkItemId = '" . $_POST["value"] . "'";
     $result = mysqli_query($connection, $test);
         
 //populate table with data

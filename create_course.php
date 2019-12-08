@@ -8,13 +8,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Student Coursework Management - Create module</title>
+        <title>Student Coursework Management - Create Course</title>
         <link href="index.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <script src="main.js"></script>
     </head>
     <body>
-        <h1 id="title">Create module</h1>
+        <h1 id="title">Create course</h1>
             
             <p><b>***UNDER CONSTRUCTION****</b></p>
             <br>
