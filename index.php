@@ -1,7 +1,7 @@
 <?php
 	
 	require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
-	//https://zeno.computing.dundee.ac.uk/2018-ga/gregjennings/AgileAssignment/Agile1Assignment/
+	//SITE ADDRESS: https://zeno.computing.dundee.ac.uk/2018-ga/gregjennings/AgileAssignment/Agile1Assignment/
 ?>
 
 <!DOCTYPE html>
