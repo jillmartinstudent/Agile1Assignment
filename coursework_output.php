@@ -68,11 +68,9 @@ $test = "SELECT a.stuMatric AS 'matric', mark, submittedDate, s.firstName AS 'st
         WHERE courseworkItemId = '" . $_POST["value"] . "'";
     $result = mysqli_query($connection, $test);
         
- $row["mitigatingUph"] = 1;   
- $row["mitigatingReq"] = 1;
- $row["secondSub"] = 90;
+
 //populate table with data
- echo $test;
+
 while ($row = mysqli_fetch_assoc($result)) {
     
     echo "<tr><td>" . $row["matric"] . "</td>";
