@@ -35,6 +35,7 @@ require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
                     <br>
                     <li><a href="create_course.php">* Create Course</a></li>
                     <li><a href="create_module.php">* Create Module</a></li>
+                    <li><a href="link_module.php">* Link Module to Course</a></li>
                     <li><a href="create_coursework.php">* Create Coursework</a></li>
                     <li><a href="edit_coursework.php">* Edit Coursework</a></li>
                     <li><a href="add_marks.php">* Add Marks</a></li>
