@@ -115,7 +115,7 @@
                 <th>Second Submission</th>
             </tr>
             <?php
-                //get marks for year 2 submissions
+                //get marks for year 3 submissions
                 $sql ="SELECT s.mark, s.submittedDate, s.mitigatingReq, s.mitigatingUph, s.secondSub, c.title AS 'itemtitle', w.title AS 'cwtitle', m.title AS 'moduletitle'
                 FROM sc_submissions s 
                 LEFT OUTER JOIN sc_courseworkItem c ON s.courseworkItemId = c.courseworkItemId
@@ -153,7 +153,7 @@
                 <th>Second Submission</th>
             </tr>
             <?php
-                //get marks for year 2 submissions
+                //get marks for year 4 submissions
                 $sql ="SELECT s.mark, s.submittedDate, s.mitigatingReq, s.mitigatingUph, s.secondSub, c.title AS 'itemtitle', w.title AS 'cwtitle', m.title AS 'moduletitle'
                 FROM sc_submissions s 
                 LEFT OUTER JOIN sc_courseworkItem c ON s.courseworkItemId = c.courseworkItemId

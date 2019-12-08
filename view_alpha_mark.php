@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <title>View a student's marks</title>   
+    <title>View a student's alphanumeric mark</title>   
     <link href="index.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <script src="main.js"></script>
     </head>
 <body>
 <!-- Taken from 'View marks for specific coursework' user story-->
-<h2>View a student's marks</h2>
+<h2>View a student's alphanumeric mark</h2>
 Select from pre-defined option in the field below
 <p>
 <?php    
@@ -25,7 +25,7 @@ Select from pre-defined option in the field below
 	
 ?>
 <!-- Query the database for a list of students and generate a drop-down list from the results. -->
-<form action="return_average_mark.php" method="post">
+<form action="return_alpha_mark.php" method="post">
 <select name="value">
     <?php foreach($result as $mark): ?>
         <option value="<?= $mark['stuMatric']; ?>"><?= $mark['firstName']; ?>  <?= $mark['secondName']; ?></option>

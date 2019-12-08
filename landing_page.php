@@ -30,7 +30,8 @@ require_once ('c:/websites/2018-ga/davidgrayland/agile/_php/dbconnect.php');
         <ul>
                     <li><a href="register_student.php">* Register Student</a></li>
                     <li><a href="view_student.php">* View Student</a></li>
-                    <li><a href="view_average_mark.php">Display Student's Average and Alphanumeric Grade</a></li>
+                    <li><a href="view_average_mark.php">Display Student's Marks</a></li>
+                    <li><a href="view_alpha_mark.php">Display Student's Alphanumeric Grade</a></li>
                     <br>
                     <li><a href="create_course.php">* Create Course</a></li>
                     <li><a href="create_module.php">* Create Module</a></li>
