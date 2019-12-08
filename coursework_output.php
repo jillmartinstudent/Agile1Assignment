@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>View marks for coursework</title>   
+        <title>Coursework output</title>   
         <link href="index.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
         <script src="main.js"></script>
     </head>
     <body>
-
-
-
 
 
         <?php
@@ -57,22 +54,34 @@
                     <th>Student Name</th>
                     <th>Mark</th>
                     <th>Date Submitted</th>
+                    <th>Mitigation Requested</th>
+                    <th>Mitigation Upheld</th>
+                    <th>Second Submission</th>
                 </tr>
 <?php
 
 //get coursework marks as per selection
-$test = "SELECT a.stuMatric AS 'matric', mark, submittedDate, s.firstName AS 'stufirst', s.secondName AS 'stusecond'
+$test = "SELECT a.stuMatric AS 'matric', mark, submittedDate, s.firstName AS 'stufirst', s.secondName AS 'stusecond', 
+        a.mitigatingReq AS 'mitReq', a.mitigatingUph AS 'mitUp', a.secondSub AS 'secSub'
         FROM sc_submissions a
         LEFT OUTER JOIN sc_students s ON a.stuMatric = s.stuMatric
         WHERE courseworkItemId = '" . $_POST["value"] . "'";
     $result = mysqli_query($connection, $test);
         
+ $row["mitigatingUph"] = 1;   
+ $row["mitigatingReq"] = 1;
+ $row["secondSub"] = 90;
 //populate table with data
+ echo $test;
 while ($row = mysqli_fetch_assoc($result)) {
+    
     echo "<tr><td>" . $row["matric"] . "</td>";
     echo "<td>" . $row["stufirst"] . " " . $row["stusecond"] . "</td>";
     echo "<td>" . $row["mark"] . "</td>";
-    echo "<td>" . $row["submittedDate"] . "</td></tr>";
+    echo "<td>" . $row["submittedDate"] . "</td>";
+    echo "<td>" . $row["mitReq"] . "</td>";
+    echo "<td>" . $row["mitUp"] . "</td>";
+    echo "<td>" . $row["secSub"] . "</td></tr>";
 }
 //free memory
 mysqli_free_result($result);
