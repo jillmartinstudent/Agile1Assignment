@@ -20,9 +20,8 @@
             <br>
 
             <form id="newModule">
-                    <input type="text" id="modTitle" name="modTitle" placeholder="Module title" onfocus="unHideTip(this)" onblur="hideTip(this)"><label hidden>A module title should not exceed 100 characters</label><br>
-                    <input type="text" id="lName" name="lName" placeholder="Lecturer" onfocus="unHideTip(this)" onblur="hideTip(this)"><label hidden>Select a lecuturer</label><br>
+                    <input type="text" id="modTitle" name="modTitle" placeholder="Course title" onfocus="unHideTip(this)" onblur="hideTip(this)"><label hidden>A course title should not exceed 100 characters</label><br>
                 </form><br>
-                <button id="create" class="button">Create Module</button>
+                <button id="create" class="button">Create Course</button>
     </body>
 </html>
