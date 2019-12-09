@@ -18,18 +18,36 @@ function hideTip(x) {
     getSib.hidden = true;
 }
 
-//Form login validation code
-
-function isEmpty() {
-
+function IsEmpty() {
     var email = document.getElementById("email").value;
     var password = document.getElementById("password").value;
     if (email == "" || password == "") {
-        alert("Please complete both login fields!");
+        alert("Please complete both login fields");
         return false;
-    } else if (email = str.includes("@")) {
-        return true;
+    } else if (!(email = str.includes("@"))) {
+        alert("Please enter valid email address");
+        return false;
     } else {
-        window.open("landing_page.php");
+        document.getElementById("form1").submit();
+    }
+}
+
+function signUp(){
+    window.open("signup.php");
+}
+
+//Sign up page validation
+
+function compForm() {
+    var fName = document.getElementById("fname").value;
+    var sName = document.getElementById("sname").value;
+    var emailadd = document.getElementById("emailadd").value;
+    var pword = document.getElementById("pword").value;
+    var confpword = document.getElementById("cpword").value;
+    if (fName == "" || sName == "" || emailadd == "" || pword == "" || confpword == "") {
+        alert("You must complete all form fields!");
+        return false;
+    } else if (emailadd = str.includes("@")) {
+        return true;
     }
 }
