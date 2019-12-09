@@ -83,7 +83,7 @@
                     echo "<td>" . $row["weighting"] .  "</td>";
                     
                     //calculate weighted agg
-                    $wAgg = ROUND(($agg["aggScale"]*($row["weighting"])/100),0);
+                    $wAgg = ROUND(($agg["aggScale"]*($row["weighting"])/100),2);
 
                     //add item's agg score to total weighted agg score
                     $totalwAgg += $wAgg;
@@ -94,7 +94,9 @@
         </table>
         <h2>Alphanumeric Grade:</h2>
         <?php
-
+			//round weighted aggscore to get final mark
+			$totalwAgg = ROUND($totalwAgg,0);
+			
             //get honours score from agg grade
             $sql = "SELECT DISTINCT s.markingScale AS 'scale', aggScale, descript, honoursClass
                 FROM sc_markingscheme s LEFT OUTER JOIN sc_markingdescript m
