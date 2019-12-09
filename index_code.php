@@ -16,7 +16,7 @@ if (empty($_POST['email']) && empty($_POST['password'])) {
     
     echo '<script> alert("Both fields are required") </script>';
 } else {
-    if ($emailadd.length > 30 or $passwd.length < 8) {
+    if (strlen($emailadd) > 30 or strlen($passwd) < 8) {
     echo '<script> alert("Length of fields is invalid") </script>';
     } //Satisfies T02
     
